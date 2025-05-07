@@ -1,0 +1,92 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Mactrics
+  // font link
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap' rel='stylesheet')
+  // bootstrap css
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' crossorigin='anonymous')
+  style.
+    *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    }
+    body{
+    /* background-color: #220649; */
+    background-size: cover;
+    background-color: #a25fff2b;
+    width: 100%;
+    min-height: 100vh;
+    }
+    .footer{
+    background-color: #220649;
+    color: #fff;
+    }
+    .title{
+    color: #522597;
+    font-size: 72px;
+    text-align: center;
+    font-family: 'Lobster Two', cursive;
+    margin-top: 2%;
+    }
+    .bg-light{
+    background-color: #fff !important;
+    }
+    .subTitle{
+    color: #522597ad;
+    font-size: 20px;
+    padding: 26px 76px;
+    text-align: center;
+    font-family: 'Lobster Two', cursive;
+    }
+    .video{
+    margin-top: 0.5%;
+    }
+    iframe {
+    border-radius: 25px;
+    width: 450px;
+    height: 265px;
+    }
+    .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    }
+    @media (min-width: 360px) and (max-width: 1199.98px) {
+    iframe {
+    border-radius: 25px;
+    width: 265px;
+    height: 265px;
+    }
+    }
+// navbar section
+nav.navbar.navbar-light.bg-light
+  .container-fluid
+    a.navbar-brand.mx-auto.d-block(href='#')
+      img.d-inline-block.align-text-top(src='/images/'+ownerId+'/logo.jpg' alt='' width='100%')
+// main section
+.container.py-5
+  .row.justify-content-center.align-items-center
+    h1.title Welcome to Penumbra Shadow Puppet Theatre
+    p.subTitle
+      | Welcome to the enchanting world of Penumbra, where imagination and artistry intertwine to bring shadows to life! We are the dedicated creators of the exquisite Penumbra's Shadow Puppet Theatre – a captivating and innovative tool for creative expression..
+  // video section
+  .row.video.my-5.row-cols-1.row-cols-md-2.g-2
+    .col
+      iframe.mx-auto.d-block(src="https://drive.google.com/file/d/1_fgS1Grkuy4PH75A-GsRQQLyakQTpFan/preview")
+    .col
+      iframe.mx-auto.d-block(src="https://drive.google.com/file/d/1U9GjIF9NxPNN3y32MDe9vREv9SKV8lbs/preview")
+// footer
+footer.bg-info.text-center.text-lg-start
+  .text-center.p-3.footer
+    | &copy; 2023 Copyright:
+    a.text-light(target='_blank' href='https://www.penumbramactrics.com/') Penumbra Mactrics Private Limited 
+// bootstrap js
+script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js' integrity='sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p' crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js' integrity='sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF' crossorigin='anonymous')

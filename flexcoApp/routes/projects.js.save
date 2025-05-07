@@ -1,0 +1,98 @@
+const router = require('express').Router();
+const bodyParser = require('body-parser');
+const crypto = require('crypto')
+const uuidv4 = require('uuid/v4')
+const fs = require('fs')
+const path = require('path')
+
+const ownerConfig = require('../config/user.json')
+const userProject = require('../controllers/projectController')
+const CloudS3 = require('../controllers/CloudS3')
+const UserFile = require('../controllers/fileController')
+const isLoggedIn = require('../middleware/auth').isLoggedIn
+
+
+
+
+router.get('/', isLoggedIn, async (req, res, next) => {
+  const project = new userProject();
+  const records = await project.getAllValues('ownerId', '1', ['name' , 'uuid'])
+  if(records)
+    return res.render('projectList', {projects :records})
+  res.render('404', { projectName: 'Unable To Display Projects' })
+})
+
+
+
+/* save new project  */
+router.post('/', isLoggedIn, (req, res, next) => {
+  const projectUuid = uuidv4();
+  const name = req.body.projectName;
+  const ownerId = ownerConfig.ownerId;
+  const bucketId = 1;
+  const project = new userProject();
+
+  /*
+      * get user folder
+      * now its hardcoded
+  */
+  ownerFolderUuid = ownerConfig.ownerFolderId;
+
+  let dir = path.resolve(__dirname, "../", 'uploads', ownerFolderUuid, projectUuid);
+  if (!fs.existsSync(dir))
+    fs.mkdirSync(dir)
+  else { // recreate uuid and check dir exist
+  }
+
+  const s3 = new CloudS3();
+  s3.createFolder(ownerFolderUuid, projectUuid)
+
+  project.store(projectUuid, name, ownerId, bucketId)
+
+  /* file url */
+  const url =req.hostname +':8080/projects/'+ projectUuid; 
+  res.render('NewProjectForm', { title: 'created', url: url })
+  res.status(200).end("created new project")
+})
+
+
+/* form to create new project */
+router.get('/create',  (req, res) => {
+  res.render('newProjectForm')
+//res.send("hello")
+})
+
+
+/* list all projects of an id */
+router.get('/:id([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})', async (req, res, next) => {
+  try {
+    const project = new userProject();
+    const projectRecord = await project.getAllValues('uuid', req.params.id, ['id', 'name'])
+
+    let projectName, projectId;
+    if (projectRecord !== 0) {
+      projectName = projectRecord[0].name;
+      projectId = projectRecord[0].id;
+    }
+    else Error('project Not Found')
+    
+    const file = new UserFile();
+    const records = await file.getAllValues('projectId', projectId, ['type', 'name', 'url', 'uuid'])
+    if (!records || records.length <= 0) {
+      throw Error("no file found for this project");
+    }
+    res.render('contents', { hostname: req.hostname, projectName: "flexco", files: records })
+  }
+  catch (err) {
+    res.render('404', { projectName: 'Project Not Found' })
+  }
+});
+
+
+/* all other routes */
+//router.all('*', (req, res) => {
+  //res.render('404', { projectName: 'Project Not Found' })
+//})
+
+
+module.exports = router;

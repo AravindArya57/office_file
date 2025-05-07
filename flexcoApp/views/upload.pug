@@ -1,0 +1,18 @@
+extends layout
+ 
+block content
+  h1= title
+  p Welcome to #{title}
+  h1 #{error}
+  h1 #{message}
+  form(method='post', action='/file', enctype='multipart/form-data') 
+    input(type="text", name="filename" )
+    
+    select(name="project")
+     option(value = "none") none
+     each val in projectName
+        option(value = val) #{val}
+
+    input(type='file', name='fileUpload' multiple)
+    input(type='submit', name='uploadimage', value='Upload')
+

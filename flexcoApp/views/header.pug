@@ -1,0 +1,128 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  title MindWoX | DashBoard
+  link(rel='icon' href='../images/fev.png' alt='mindwox' type='image/png' sizes='128x128')
+  meta(name='Description' content='MindWoX is the VR & AR conent viewer and editor.contact info@madrasmindworks.com')
+  meta(name='Keywords' content='VR, AR, Virtual Reality, Augmented Reality,Editor,Application,MindWoX')
+  meta(name='robots' content='MindWoX')
+  meta(name='googlebot' content='MindWoX')
+  meta(name='author' content='Ajith Kumar')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y=' crossorigin='anonymous')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css' integrity='sha256-x8PYmLKD83R9T/sYmJn1j3is/chhJdySyhet/JuHnfY=' crossorigin='anonymous')
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet' href='/stylesheets/style.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+  script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js')
+  // //////////////////////////////////////////-Sweet alert//////////////////////////////
+  link(href='https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css')
+  script(src='https://cdn.jsdelivr.net/npm/sweetalert2@9')
+  // <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  // Global site tag (gtag.js) - Google Analytics
+  script(async='' src='https://www.googletagmanager.com/gtag/js?id=UA-173425481-1')
+  script.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-173425481-1');
+  // author @santhosh-sj
+  style.
+    .img {
+    max-width: 100%;
+    height: 50%;
+    border-radius: 50px;
+    }
+  
+  // end author script
+  // Author AjithKumar
+  script.
+    function iconload(){
+    let item = document.querySelector("#arrowbtn");
+    if(item.innerText == 'keyboard_backspace')
+    {
+    item.innerText = 'trending_flat';
+    }
+    else{
+    item.innerText = 'keyboard_backspace';
+    }
+    }
+    // Create Experience Name
+    function CreateExperienceName(){
+    Swal.fire({
+    title: 'Assign Your Experience Name',
+    input: 'text',
+    inputAttributes: {
+    autocapitalize: 'off'
+    },
+    confirmButtonText: 'Create',
+    showCancelButton: true,
+    showLoaderOnConfirm: true,
+    confirmButtonColor:'#774DEE',
+    })
+    }
+nav.navbar.navbar-expand-lg.navbar-dark.bg-mattBlackLight.fixed-top
+  button.navbar-toggler.sideMenuToggler(type='button')
+    span.material-icons(style='color:#36174d;') menu
+  a.navbar-brand(href='https://mindwox.com/dashboard/my_experience.php' style='margin:0;')
+    img(src='https://www.mindwox.com/images/logof.svg' alt='mindwox' width='150px')
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+    a#navbarDropdown.nav-link.dropdown-toggle.p-0(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+      // <span class="text">Account</span>
+      img.pro.img(src='../images/profile.png' alt='mindwox' width='30vw' height='30vw')
+    .dropdown-menu.dropdown-menu-right(aria-labelledby='navbarDropdown')
+      a.dropdown-item(href='/reset-password') 
+        i.material-icons.icon.profileicons edit
+        | Reset Password
+      // <a class="dropdown-item" href="change_pass.php">Setting</a>      
+      a.dropdown-item(href='/logout') 
+        i.material-icons.icon.profileicons exit_to_app
+        | Logout
+  .collapse.navbar-collapse
+    ul.navbar-nav.ml-auto
+      li.nav-item.dropdown
+        a#navbarDropdown.nav-link.dropdown-toggle.p-0(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+          // <span class="text">Account</span>
+          // <img src="../img/dash/profile.png" alt="mindwox" id="userprofileimage" class="pro" width='10vw' height='10vw' alt="Avatar">
+          img#userprofileimage.pro.img(src='../images/profile.png' alt='mindwox' width='45vw' height='45vw')
+        .dropdown-menu.dropdown-menu-right(aria-labelledby='navbarDropdown')
+          a.dropdown-item(href='/reset-password')
+            i.material-icons.icon.profileicons edit
+            | Reset Password
+          // <a class="dropdown-item" href="change_pass.php">Setting</a>
+          a.dropdown-item(href='/logout')
+            i.material-icons.icon.profileicons exit_to_app
+            |  Logout
+// -----------sidenav-----------
+.wrapper.d-flex
+  .sideMenu.bg-mattBlackLight.newstyle
+    .sidebar
+      ul.navbar-nav
+        //
+          <li class="nav-item active">
+          <a  onclick=" CreateExperienceName()" class="nav-link px-2">
+          <i class="material-icons icon">create</i>
+          <span class="text">Create</span></a>
+          </li>
+        li.nav-item
+          a.nav-link.px-2(href='/projects')
+            i.material-icons.icon
+              | folder
+            span.text My WoX
+        li.nav-item
+          a.nav-link.px-2(href='/categories')
+            i.material-icons.icon
+              | layers
+            span.text Category  
+
+      //  li.nav-item
+          a.nav-link.px-2(href='/dashboard')
+            i.material-icons.icon
+              | dashboard
+            span.text Dashboard
+    ul(style='right:0 ; position:fixed; bottom: 0;')
+      li.nav-item.resize
+        a.nav-link.px-2.sideMenuToggler(href='#' onclick='iconload()')
+          i#arrowbtn.material-icons.icon.expandView
+            | keyboard_backspace

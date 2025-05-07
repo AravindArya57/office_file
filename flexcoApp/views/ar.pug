@@ -1,0 +1,144 @@
+include header.pug
+style.
+  #uploadForm {
+  border-top: #F0F0F0 2px solid;
+  background: #FAF8F8;
+  padding: 10px;
+  }
+  #uploadForm label {
+  margin: 2px;
+  font-size: 1em;
+  font-weight: bold;
+  }
+  .demoInputBox {
+  padding: 5px;
+  border: #F0F0F0 1px solid;
+  border-radius: 4px;
+  background-color: #FFF;
+  }
+  #progress-bar {
+  background-color: #12CC1A;
+  height: 20px;
+  color: #FFFFFF;
+  width: 0%;
+  -webkit-transition: width .3s;
+  -moz-transition: width .3s;
+  transition: width .3s;
+  }
+  .btnSubmit {
+  background-color: #09f;
+  border: 0;
+  padding: 10px 40px;
+  color: #FFF;
+  border: #F0F0F0 1px solid;
+  border-radius: 4px;
+  }
+  #progress-div {
+  border: #0FA015 1px solid;
+  margin: 10px 0px;
+  border-radius: 4px;
+  text-align: center;
+  height: 20px;
+  display: none;
+  }
+  #targetLayer {
+  width: 100%;
+  text-align: center;
+  }
+
+ .DropdownBTN{
+  background-color:White;
+  border:2px solid #333;
+  padding:8px 12px;
+  margin-top:10px;
+  display:inline;
+  }
+// 
+// 
+script(src='https://code.jquery.com/jquery-2.1.1.min.js' type='text/javascript')
+
+// 
+// 
+// /////////////////////////////// Modal ///////////////////////////////////////////
+#successModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='successModal' aria-hidden='true')
+  .modal-dialog.modal-dialog-centered(role='document')
+    .modal-content
+      .modal-header
+        h5#exampleModalLongTitle.modal-title Share Experience
+        button.close(type='button' data-dismiss='modal') &times;
+      .modal-body
+        center
+          // <h5 class="modal-title" style="font-weight: bold" id="exampleModalLongTitle">interrior workspace</h5><br>
+          p
+            | Open mobile application
+            br
+            | use QR scan mode to view Experience
+          #qrcode
+          input#experience_url.copyinput(type='text' value='https://catalog.mindwox.com/projects')
+          i.material-icons.icon(onclick='copyURL()') insert_drive_file
+          br
+          hr
+// /////////////////////////////// Modal ///////////////////////////////////////////
+.wrapper.d-flex
+  .content
+    // -////////////////////////////////////////////third slide start/////////////////////////////////////////////////
+    main#third-slide.arform
+      .container-fluid
+        .row
+          .col
+            .form-headings
+              h3.headingtxt
+                span Upload Files to
+                | &nbsp; #{title.toUpperCase()}
+              // <p style="text-align:center; margin:20px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum</p>
+        .row.slide-centering
+          .col-sm-4.order-sm-1.bgform
+            form#content-form(action='/file' method='post' enctype='multipart/form-data')
+              #error_field(name='error_field' style='font-size:15px; color:red; margin-top:0px; text-align: center;white-space:normal;')
+              #progress-div
+                #progress-bar
+              // <div>
+              span(style='padding-right:20px;') Choose Upload Type 
+              .btn-group(role='group' aria-label='Basic example' name='uploadtype')
+              button.btn.FileButton#FileButtonClick(type='button' value="File") File
+              button.btn.URLButton#URLButtonClick(type='button' ) URL          
+              input#title.form-control(type='name' name='filename' data-toggle='tooltip' title='Enter your filename' placeholder='File Name' required='required' maxlength='20' style='margin-top:15px')
+              span(style='padding-right:20px;') Choose Category
+              select.DropdownBTN( name='category', id='category' title='Enter your file category')
+                each category in categories
+                  option=category.name
+              br
+              br
+              input#url.form-control(type='name' name='url' data-toggle='tooltip' title='Enter your url' placeholder='URL' required='required' maxlength='200')
+              //- <input type="file" name="fileupload" value="fileupload" id="fileupload">
+              //- input(type='hidden' name="project" value=`${title}`)
+              #dropFile.upload-btn-wrapper
+                button.btn.btnn
+                  i.material-icons.icon backup
+                  | Upload
+                // <div class="status"><p>Marker formats JPEG & PNG</p></div>
+                #status
+                  p
+                    | Drag  pdf and mp4
+                    br
+                    |  (Max file size 50MB)
+                input#modelfiles(type='file' name='fileUpload' value='fileupload' onchange="validateExperienceFile('modelfiles')" accept='.mp4 , .pdf')
+              //- p.youtubestatus or Upload a youtube video link
+              //- input#title.form-control(type='name' name='title' data-toggle='tooltip' title='Paste your youtube video link' placeholder='https://youtu.be/OQL-m4tOBow' required='required' maxlength='20' display='none')
+              // </div>
+
+              input#experienceSubType(type='hidden' name='uuid' value=`${uuid}`)
+        .row
+          .btnalignment
+            td
+              button#content-form-submit.form-submit(type='submit') Create
+              nobr
+                button.form-back(type='reset') Reset
+    // -////////////////////////////////////////////third slide over/////////////////////////////////////////////////
+    include footer.pug
+// -///////////////////////loader///////////////////////
+// author santhosh-sj
+script(src='https://cdn.jsdelivr.net/npm/davidshimjs-qrcodejs@0.0.2/qrcode.min.js')
+script(src='https://unpkg.com/axios@0.19.2/dist/axios.min.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js' integrity='sha512-YUkaLm+KJ5lQXDBdqBqk7EVhJAdxRnVdT2vtCzwPHSweCzyMgYV/tgGF4/dCyqtCC2eCphz0lRQgatGVdfR0ww==' crossorigin='anonymous')
+script(src='/javascripts/ar.js')

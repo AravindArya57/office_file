@@ -1,0 +1,249 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    background-color: #383981;
+}
+
+
+.bg-light {
+    background-color: #383981!important;
+    border-bottom: solid #fff 1px !important
+}
+
+
+.projectname{
+    padding: 20px;
+    width: 100%;
+}
+
+.publishbutn{
+    float: right;
+    padding: 6px 20px;
+    color: #fff;
+    margin: 22px;
+    background-color:#1ac787;   
+    border-radius:50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+.publishbutn:hover{
+    background-color:#14a771;
+    
+}
+.publishbutn:active{
+outline: none;
+border:none;
+}
+.publishbutn:focus{
+    outline: none;
+    border: none;
+}
+
+
+.viewpagebtn{
+   
+        float: right;
+        padding: 6px 20px;
+        color: #fff;
+        margin-top: 22px;
+        background-color: transparent;
+        border-radius: 50px;
+        border: 2px solid #fff;
+        outline: none;
+        cursor: pointer;
+    
+}
+.viewpagebtn:active{
+    outline: none;
+   
+    }
+    .viewpagebtn:focus{
+        outline: none;
+       
+    }
+    
+
+.projecttitle{
+    color: #ffffff;
+    padding-right: 20px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.Mainname{
+    background-color: transparent;
+    color: #fff;
+    outline: none;
+    outline-style: none;
+    width: 30%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid #fff 1px;
+    padding: 3px 10px;
+}
+
+.Mainname::placeholder{
+    color:#ffffffc0 ;
+}
+
+.savebtn{
+    background-color: transparent;
+    border: 1px solid #fff;
+    padding: 3px 8px;
+    margin-left: 20px;
+    color: #fff;
+    border-radius: 50px;
+    font-size: 17px;
+    cursor: pointer;
+    outline: none;}
+
+.savebtn:focus{
+   
+    cursor: pointer;
+    outline: none;
+}
+
+
+.thumbicon {
+    font-size: 100px;
+    color: #f74040;
+    margin-top: 10px auto;
+    margin: 10px auto;
+    cursor: pointer;
+    transform: translateX(75px);
+
+}
+
+.editicon{
+    font-size: 24px;
+    float: right;
+    cursor: pointer;
+}
+
+    .filename {
+        outline: none;
+        border: none;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 500;
+    
+}
+.viewpagefilename{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    outline: none;
+    border: none;
+}
+
+
+
+footer{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    margin: auto;
+    color: #fff;
+    background-color: #1e1f4c;
+}
+
+
+.footerlogo{
+    width: 150px;
+}
+
+/*  */
+
+
+
+
+#sortableDiv{
+    cursor: move;
+}
+
+
+
+
+/*  */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .footer {
+        position:relative;
+        width: 100%;
+        bottom: 0;
+        margin: auto;
+        color: #fff;
+        background-color: #1e1f4c;
+    }
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    .footer {
+        position:relative;
+        width: 100%;
+        bottom: 0;
+        margin: auto;
+        color: #fff;
+        background-color: #1e1f4c;
+    }
+  }
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    .footer {
+        position: fixed;;
+        width: 100%;
+        bottom: 0;
+        margin: auto;
+        color: #fff;
+        background-color: #1e1f4c;
+    }
+
+    .carddesign{
+        margin-right:178px;
+    }
+  } 
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    .footer {
+        position:fixed;
+        width: 100%;
+        bottom: 0;
+        margin: auto;
+        color: #fff;
+        background-color: #1e1f4c;
+    }
+    .carddesign{
+        margin-right:100px;
+    }
+  } 
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+    .footer {
+        position:fixed;
+        width: 100%;
+        bottom: 0;
+        margin: auto;
+        color: #fff;
+        background-color: #1e1f4c;
+    }
+   
+  }
+
+  @media only screen and (min-width:1800px){
+    .carddesign{
+        margin-right:10px;
+    }
+  }

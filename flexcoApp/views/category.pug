@@ -1,0 +1,128 @@
+include header.pug
+style.
+    body
+    {
+      overflow: hidden;
+    }
+    .categorycenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .categoryCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin: auto;
+    background: #FFFFFF;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-check-input:checked{
+        background-color: #774dee !important;
+    }
+    .categoryList{
+        overflow-y: scroll;
+        height: 40vh;
+    }
+    .addcategory{
+        border-radius: 50px;
+        border: 2px solid #c1bfbf;
+        padding: 10px 23px;
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .form-check{
+    margin-bottom:1rem !important;
+    }
+    .form-check-input {
+        border-radius: 50px !important;
+        border: 1px solid rgba(0, 0, 0, 0.5) !important;
+    }
+    .addBtn{
+        color: rgb(255, 255, 255) !important;
+        width: 100%;
+        height:auto;
+        background-color: #774DEE !important;
+        border: none;  
+        border-radius: 50px !important;
+        font-size: 16px;    
+    }
+    .disBtn{
+        width: 100%;
+        height: 40px;
+        border: 1px solid rgba(0, 0, 0, 0.3) !important;
+        border-radius: 20px;
+        border-radius: 20px !important;
+        font-size: 12px;
+    }
+    .card{
+        border-radius: 10px !important;
+        border: 1px solid rgba(0, 0, 0, 0.3) !important;
+    }
+    .cateTilte{
+        float: left;
+        font-size: 18px;
+        font-weight: bold;
+        color: #808080;
+    }
+    .delete{
+      
+        float: right;
+    }
+
+    .material-icons{
+        vertical-align: sub !important;
+        color: #9f9f9f;
+        font-size: 21px !important;
+
+    }
+    
+    .categorylisting{
+        margin-left:12px;
+        display:inline;
+        font-size: 21px !important;
+    }
+    .add{
+        color: #fff !important;
+    }
+
+.wrapper.d-flex
+  .content
+    main
+      .container-fluid.categorycenter
+        .col-md-4.p-2
+          .categoryCard(style='margin-left: auto;margin-right:auto;margin-top:50px;')
+            .card-body
+              p.cateTilte All Categories
+              //p.delete
+                span.material-icons.md-36 delete
+                |  Delete
+              .row-md-4.mt-3.mb-3
+                .card(style='width:100%;')
+                  .categoryList.p-2
+                    // ////////////////////////////////////////
+                    each category in categories  
+                      div.categoryelement                             
+                        a#editcategory.btn.mb-3(style='padding:0px;margin-top:15px' onclick='edit(this)')
+                          span.material-icons.md-36 edit
+                        a#deletecategory.btn.mb-3(style='padding:0px;margin-top:15px;margin-left:7px' onclick='categoryDeleteYesOrNo(this)')
+                          span.material-icons.md-36 delete
+                        input#categorylisting.categorylisting(type='text' name='categoryName' value=`${category.name}` readonly=''  )
+                        input#categorylistingid.categorylistingid(type='hidden' name='categoryId' value=`${category.id}` readonly=''  )
+                        
+                        
+              div
+                input.addcategory(type='text' value='' id='categoryname' placeholder='Category name')
+              div
+                a#addcategory.btn.addBtn.mb-3(href='#')
+                  span.material-icons.md-36.add 
+                  |  Add Category
+
+script(src="/javascripts/categoryApp.js")
+// --tutorials--------
+include footer.pug

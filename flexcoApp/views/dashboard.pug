@@ -1,0 +1,67 @@
+include header.pug
+style.
+  table {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  }
+// /////////////////////////////////
+.wrapper.d-flex
+  .content
+    main
+      // Title and tag
+      .container-fluid
+        h2 Dashboard
+        hr
+        // -----------------------------openStorage------------------------------------
+        .row
+          // storage block
+          .col-md-3.my-3
+            .bg-color.px-3.py-3
+              h4.mb-2 Disk Space
+              p#storage-slot 0 MB / 100 MB (0% used)
+              .progress(style='height: 16px;')
+                #progressBar-slot.progress-bar.bg-success.text-mattBlackDark(role='progressbar' style='width: 0%;' aria-valuenow='25' aria-valuemin='0' aria-valuemax='100')
+                  | 0
+          // experience block
+          .col-md-3.my-3
+            .bg-color.px-3.py-3
+              h4.mb-2 Expereince Disk
+              p#experience-slot 0 Exp / 0 Exp (0% used)
+              .progress(style='height: 16px;')
+                #progressBar-slot-experience.progress-bar.text-mattBlackDark(role='progressbar' style='width: 0%;' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100')
+                  | 0
+          #key-block.col-md-3.my-3(style='display: none;')
+            .bg-color.px-3.py-3
+              h4.mb-2 Activation Keys
+              p#key-slot 0 key /0 Key (0% used)
+              .progress(style='height: 16px;')
+                #progressBar-slot-key.progress-bar.bg-success.text-mattBlackDark(role='progressbar' style='width: 0%;' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100')
+                  | 0
+        // -------------------------------------closestorage-------------------
+        script.
+          function Removefunction() {
+          Swal.fire({
+          title: 'Are you sure?',
+          text: "Remove the account!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, Remove it!'
+          }).then((result) => {
+          if (result.isConfirmed) {
+          Swal.fire(
+          'Successfully Removed',
+          'Key is Removed.',
+          'success'
+          )
+          }
+          })
+          }
+        script(src='https://mindwox.com/sjs/js/storageQuota.js')
+        script(src='https://mindwox.com/sjs/js/experienceQuota.js')
+        script(src='https://mindwox.com/sjs/js/keyQuota.js')
+        script(src='https://mindwox.com/sjs/js/licenceKey.js')
+
+include footer.pug

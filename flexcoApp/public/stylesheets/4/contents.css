@@ -1,0 +1,166 @@
+ /*start-- google translate style*/
+
+    .goog-logo-link {
+   display:none !important;
+} 
+
+.goog-te-gadget{
+   color: transparent !important;
+}
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+    } 
+body {
+    top: 0px !important; 
+    }
+
+
+.goog-te-gadget .goog-te-combo {
+    margin: 0px 0px;
+}
+.goog-logo-link {
+  display:none !important;
+} 
+.goog-te-gadget{
+  color: transparent !important;
+  font-size:0px;
+}
+
+.goog-te-combo { 
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #687074;
+  text-transform: uppercase;
+  cursor:pointer;
+  color: #383981;
+  border : blue;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/*end -- google translate custom style*/
+
+/* dropdown customization */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    /*text-overflow: '';*/
+}
+
+
+/* fa fa icons */
+.font-awesome
+{
+  font-size:50px;
+  color:red;
+  padding:25px 25px 25px 25px;
+}
+
+/* navbar logo */
+#logo{
+    color: #383981;
+    font-family: Quicksand;
+}  
+
+
+/* modal */
+.modal-content iframe{
+  margin: 0 auto;
+  display: block;
+}
+
+
+.container-fluid{
+  padding-left: 0px;
+}
+
+.navbar{
+  padding:0px;
+}
+
+/* footer */
+.footer{
+  border:none;
+  padding-top: 20px; 
+}
+
+
+/* newly added */
+
+
+.text{
+  text-align: center;
+}
+h2{
+  text-align: center;
+}
+
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    /*text-overflow: '';*/
+}
+.card-header{
+  background:#EFECFB;
+  border:none;
+}
+.my-0{
+  color: #383981;
+  font-size : 20px;
+}
+.fo{
+  background: #383981;  
+}
+.box{
+  box-shadow: 0px 0px 15px 0px #383981 ;
+  border: none;
+}
+.font-awesome
+{
+  font-size:50px;
+  color:red;
+  padding:25px 25px 25px 25px;
+}
+
+#navLogo{
+  max-width: 170px;
+  max-height: 70px; 
+}
+
+body{
+background-color: #383981;
+}
+
+/* end newly added */
+
+
+/* demo changes */
+/* 
+.card-header{
+  background: #383981;
+  border:none;
+}
+
+.list-unstyled{
+  background : #383981;
+  margin :0px;
+}
+
+.my-0{
+  color: white;
+  font-size : 20px;
+} */
+
+/* end demo changes */
+
+
+/* list of media's to consider */
+
+@media (min-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */ }
+@media (min-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ }
+@media (min-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
+@media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+@media (min-width:1281px) { /* hi-res laptops and desktops */ }

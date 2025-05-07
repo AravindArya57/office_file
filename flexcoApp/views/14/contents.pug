@@ -1,0 +1,111 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Hotel Menu
+  // favicon
+  link(rel='icon' href='img/favIcon.png')
+  // style sheet css link
+  link(rel='stylesheet' href='../../stylesheets/'+ownerId+'/contents.css')
+  // bootstrap css link
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU' crossorigin='anonymous')
+  // font link
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap' rel='stylesheet')
+  // icon
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+// ////////// navbar ////////////
+nav.navbar.navbar-light
+  .container
+    a.navbar-brand(href='#')
+      img(src='../../images/'+ownerId+'/logo.png' alt='' width='30%')
+  .line
+// /////////// header section ///////////////////
+.container
+  .header
+    .row.my-2
+      .col(style='color: #F55951;')
+        h3 OUR MENU
+      //.col
+        .dropdown(style='float: right;')
+          label(style='color: #5E5E5E;') Category
+          select.dropdown-content
+            option.catlist(value='food') Food
+            option.catlist(value='food') Food
+            option.catlist(value='food') Food
+            option.catlist(value='food') Food
+// -///////////// card section ///////////////
+.container
+  .row.row-cols-2.row-cols-md-5.g-4
+    .col
+      .categoryCard.h-100
+        img.card-img-top(src='../../images/'+ownerId+'/tomatosoup.png' alt='...')
+        .card-body
+          h5.card-title Tomato Soup
+          p.card-text Price &#x20b9; 79
+          a.btn.btnView(href='https://mindwox.com/ar/index.php?id=90e0b9' target="_blank") 3D View
+    .col
+      .categoryCard.h-100
+        img.card-img-top(src='../../images/'+ownerId+'/mexicanpizza.png' alt='...')
+        .card-body
+          h5.card-title Mexican Pizza
+          p.card-text Price &#x20b9; 139
+          a.btn.btnView(href='https://mindwox.com/ar/index.php?id=deeeae' target="_blank") 3D View
+    .col
+      .categoryCard.h-100
+        img.card-img-top(src='../../images/'+ownerId+'/croissant.png' alt='...')
+        .card-body
+          h5.card-title Croissant
+          p.card-text Price &#x20b9; 79
+          a.btn.btnView(href='https://mindwox.com/ar/index.php?id=6e13f7' target="_blank") 3D View
+    .col
+      .categoryCard.h-100
+        img.card-img-top(src='../../images/'+ownerId+'/pancake.png' alt='...')
+        .card-body
+          h5.card-title Pan Cake
+          p.card-text Price &#x20b9; 105
+          a.btn.btnView(href='https://mindwox.com/ar/index.php?id=2c3414' target="_blank") 3D View
+    .col
+      .categoryCard.h-100
+        img.card-img-top(src='../../images/'+ownerId+'/sausage.png' alt='...')
+        .card-body
+          h5.card-title Sausage
+          p.card-text Price &#x20b9; 199
+          a.btn.btnView(href='https://mindwox.com/ar/index.php?id=e5cd16' target="_blank") 3D View
+    .col
+      .categoryCard.h-100
+        img.card-img-top(src='../../images/'+ownerId+'/beefsteak.png' alt='...')
+        .card-body
+          h5.card-title Beef Steak
+          p.card-text Price &#x20b9; 259
+          a.btn.btnView(href='https://mindwox.com/ar/index.php?id=88a9fa' target="_blank") 3D View
+    .col
+      .categoryCard.h-100
+        img.card-img-top(src='../../images/'+ownerId+'/ballmanchuriannoodles.png' alt='...')
+        .card-body
+          h5.card-title Ball Manchurian Noodles
+          p.card-text Price &#x20b9; 259
+          a.btn.btnView(href='https://mindwox.com/ar/index.php?id=0d5914' target="_blank") 3D View
+    .col
+      .categoryCard.h-100
+        img.card-img-top(src='../../images/'+ownerId+'/cappuchino.png' alt='...')
+        .card-body
+          h5.card-title Cappuchino 
+          p.card-text Price &#x20b9; 129
+          a.btn.btnView(href='https://mindwox.com/ar/index.php?id=e7996e' target="_blank") 3D View
+
+br
+br
+// Footer
+footer.page-footer.font-small.mt-5
+  // Copyright
+  .footer-copyright.text-center.py-3
+    | Product Of
+    a(href='')
+      img.my-1(src='../../images/'+ownerId+'/footerLogo.png' alt='' width='130' height='25' class='vertical-align: middle;' style="margin-left:10px;")
+  // Copyright
+// bootstrap js link
+script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js' integrity='sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN' crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js' integrity='sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/' crossorigin='anonymous')

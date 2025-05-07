@@ -1,0 +1,134 @@
+doctype html
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  link(rel='icon' href='/images/favicon.png' type='image/png' sizes='16x16')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
+  link(rel='stylesheet' type='text/css' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet' type='text/css' href='/stylesheets/'+ownerId+'/contents.css')
+  title MindWoX
+
+nav.navbar.navbar-inverse.border-bottom.box-shadow.box(style='margin-bottom: 10px; background:#383981')
+  .container-fluid
+    .navbar-header
+      a#logo.navbar-brand.logo(href='#')
+        img#navLogo(src='/images/'+ownerId+'/logo.png')
+    //- span#google_translate_element
+.container
+  .px-4.pt-md-5.pb-md-3.pb-2.mx-auto.text-center
+    h3.display-5(style='color: white') #{projectName}
+  .row
+    each file in files
+      case file.type
+        when 1
+          if  ! file.url 
+            .col-12.col-md-4.col-sm-6.col-lg-3.text-center
+              a(href='#' onclick="changeUrl('http://"+hostname+"/viewer/web/"+file.uuid+"')" data-toggle='modal' data-target='#videoModal')
+                .card.mb-2.box-shadow.box
+                  .card-header
+                    h4.my-0(style='font-size : 20px') #{file.name}
+                  div
+                    // class ="card-body"
+                    ul.list-unstyled
+                      li.fa.fa-youtube-play.font-awesome
+              
+          else
+            .col-12.col-md-4.col-sm-6.col-lg-3.text-center
+              a(href='#' onclick="changeUrl('"+file.url+"')" data-toggle='modal' data-target='#youtubevideoModal')
+                .card.mb-2.box-shadow.box
+                  .card-header
+                    h4.my-0(style='font-size : 20px') #{file.name}
+                  div
+                    // class ="card-body"
+                    ul.list-unstyled
+                      li.fa.fa-youtube-play.font-awesome
+            
+
+        when 3
+          .col-12.col-md-4.col-sm-6.col-lg-3.text-center
+            a(href='http://'+hostname+'/viewer/web/index.html?file=' + file.uuid, target='_blank')
+              .card.mb-2.box-shadow.box
+                .card-header
+                    h4.my-0(style='font-size : 20px') #{file.name}
+                div
+                  ul.list-unstyled
+                    li.fa.fa-file-pdf-o.font-awesome 
+
+        when 4
+          .col-12.col-md-4.col-sm-6.col-lg-4.text-center(name='Card')
+            a(href=file.url, target='_blank')
+              .card.mb-2.box-shadow.box
+                .card-header
+                    ul.list-unstyled(style='display:inline-block;float:left;margin-left:-30px;width:70px;height:70px;margin-top:-10px;')
+                      li.fa.fa-link.font-awesome 
+                    br
+                    h4.my-0(style='font-size : 18px;display:inline-block;float:right;text-align: center;') #{file.name}
+                    h4.my-0(style='font-size : 18px;display: none',name='CategoryDisplay') #{file.category}
+    //- common for all products
+
+    //- //- BCP
+    //- .col-12.col-md-4.col-sm-6.col-lg-3.text-center
+    //-   a(href='http://'+hostname+'/viewer/web/index.html?file=4599fa78-6914-425d-96b6-f1494c2e4650', target='_blank')
+    //-     .card.mb-2.box-shadow.box
+    //-       .card-header
+    //-           h4.my-0(style='font-size : 20px') बी सी पी केटलॉग / BCP Catalog
+    //-       div
+    //-         ul.list-unstyled
+    //-           li.fa.fa-file-pdf-o.font-awesome
+
+    //- MBF
+    //- .col-12.col-md-4.col-sm-3.col-lg-3.text-center
+    //-   a(href='http://'+hostname+'/viewer/web/index.html?file=d2aec67d-1cad-4f83-ab6e-70cbf8fc0cc7', target='_blank')
+    //-     .card.mb-2.box-shadow.box
+    //-       .card-header
+    //-           h4.my-0(style='font-size : 20px') फ़ास्टनर केटलॉग / MBF catalog
+    //-       div
+    //-         ul.list-unstyled
+    //-           li.fa.fa-file-pdf-o.font-awesome
+
+    //- URl flexco.com
+    .col-12.col-md-4.col-sm-3.col-lg-3.text-center
+      a(href=website , target='_blank')
+        .card.mb-2.box-shadow.box
+          .card-header
+              h4.my-0(style='font-size : 20px') Website Link
+          div
+            ul.list-unstyled
+              li.fa.fa-link.font-awesome
+
+
+footer.footer
+  .footer-copyright.text-center.py-3.fo
+    | Powered by MindWoX
+    a(href='https://mindwox.com/mindwox/')
+      img(src='/images/favicon.png' style="margin-left:10px")
+
+//- modal for youtube video
+#youtubevideoModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true')
+  .modal-dialog.modal-dialog-centered(role='document')
+    .modal-content
+      .modal-header
+        h5#exampleModalCenterTitle.modal-title 
+        button#close.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body
+        //- video#video(width='100%' height='250px' src='' type='video/mp4' controls='' disablepictureinpicture='' controlslist='nodownload')
+        iframe#youtube(width='100%' height='250px' src='https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0' frameborder='0' allow='accelerometer;  encrypted-media; gyroscope' allowfullscreen='')  
+
+#videoModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true')
+  .modal-dialog.modal-dialog-centered(role='document')
+    .modal-content
+      .modal-header
+        h5#exampleModalCenterTitle.modal-title 
+        button#close.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body
+        video#video(width='100%' height='250px' src='' type='video/mp4' controls='' disablepictureinpicture='' controlslist='nodownload')
+
+      script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
+      script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+      script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
+      //- script(type='text/javascript' src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit')
+      script(src='/javascripts/contents.js')

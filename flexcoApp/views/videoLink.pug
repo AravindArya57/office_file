@@ -1,0 +1,22 @@
+extends layout
+ 
+block content
+  h1= title
+  p Welcome to #{title}
+  h1 #{messge}
+  br
+  a(href="/file/create") upload new file
+  br
+  br
+  form(method='post', action='/file/link')
+    input(type="text", name="filename", placeholder="filename" )
+    br
+    br
+    input(type="text", name="url", placeholder="url" )
+    
+    select(name="project")
+     each val in projectName
+        option(value = val) #{val}
+
+    input(type='submit', name='uploadimage', value='Upload Url')
+

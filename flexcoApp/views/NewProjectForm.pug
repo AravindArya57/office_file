@@ -1,0 +1,16 @@
+extends layout
+ 
+block content
+  h1= title
+  p Welcome to #{title}
+  p Url for uploaded file #{url}
+  a(href="/file/create") upload new file
+  br
+  br
+  a(href="/file/create/link") upload new link
+  br
+  br
+  form(method='post' action='/projects') 
+    input(type="text", name="projectName")
+    input(type='submit', name='submit', value='Create')
+

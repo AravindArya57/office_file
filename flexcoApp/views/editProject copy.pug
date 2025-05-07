@@ -1,0 +1,89 @@
+include header.pug
+.wrapper.d-flex
+  .content
+    main
+      // Title and tag
+      .container-fluid
+        a.createmwox(onclick=`window.location.href='/file/create?id=${uuid}'` type='button')
+          i.material-icons.icon create
+          | Add File
+        hr
+        // Modal
+        #exampleModalCenter.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true')
+          .modal-dialog.modal-dialog-centered(role='document')
+            .modal-content
+              .modal-header
+                h5#exampleModalLongTitle.modal-title Share Experience
+                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                  span(aria-hidden='true') &times;
+              .modal-body
+                center
+                  // <h5 class="modal-title" style="font-weight: bold" id="exampleModalLongTitle">interrior workspace</h5><br>
+                  p
+                    | Open mobile application
+                    br
+                    | use QR scan mode to view Experience
+                  #qrCodeImage(style='padding:20px;')
+                  input#myInput.copyinput(type='text' value= `/projects/ `)
+                  i.material-icons.icon(onclick='copyfile()') insert_drive_file
+                  br
+        .row
+          #experience-slot.flexing
+            // ////////////////////////////////////////
+            if !projects
+              p No fileuploaded to this project
+            else
+              each project in projects
+                .column.Marker-based.check
+                  .content.fit
+                    // Card
+                    .card.promoting-card
+                      .card-body.d-flex.flex-row
+                        h4.card-title.font-weight.mb-2 #{project.name}
+                        //- p(style={display :'none'})  /projects/#{project.uuid}
+                        //- input(type="hidden" value=`/projects/${project.uuid}`)
+                      .view.overlay
+                        img(src='/images/folder.png' width='100%')
+                      .card-body.expID
+                        input(type='hidden' value=`${project.uuid}`)
+                        .collapse-content
+                          //- a.float-left.add(href=`/file/create?id=${project.uuid}` type='button')
+                          //-   i.material-icons.icon.addfiles add
+                          //-   | Add Files
+                          .btn-group.right
+                            a.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                              i.material-icons.icon more_vert
+                            .dropdown-menu
+                              // <a class="dropdown-item"  onclick="EditExperience(this)" data-toggle="modal" data-target="#exampleModalEditor" >Edit</a>
+                              //- a.share.dropdown-item(data-toggle='modal' data-target='#exampleModalCenter')
+                              //-   i.material-icons.icon.operations share
+                              //-   | Share
+                              //- a.dropdown-item(onclick=`window.location.href='/file/edit/${project.uuid}'`)
+                              //-   i.material-icons.icon.operations edit
+                              //-   | Edit
+                              a.dropdown-item(onclick='DeleteExperience(this)')
+                                i.material-icons.icon.operations delete
+                                | Delete
+                // Card
+            // //////////////////////////////////////////////////////
+           
+script(src='http://cdn.jsdelivr.net/npm/davidshimjs-qrcodejs@0.0.2/qrcode.min.js')
+script(src="/javascripts/projectApp.js")
+script.
+  // Create Experience Name
+  //- function CreateExperienceName(){
+  //- Swal.fire({
+  //- title: 'Assign Your Experience Name',
+  //- input: 'text',
+  //- inputAttributes: {
+  //- autocapitalize: 'off'
+  //- },
+  //- confirmButtonText: 'Create',
+  //- showCancelButton: true,
+  //- showLoaderOnConfirm: true,
+  //- confirmButtonColor:'#774DEE',
+  //- })
+  //- }
+
+// --tutorials--------
+include footer.pug

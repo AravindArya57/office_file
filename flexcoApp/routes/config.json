@@ -1,0 +1,13 @@
+{
+   "smtpOptions": {
+    "host": "smtp.gmail.com",
+    "port": 587,
+    "secure":true,
+    "auth": {
+      "type": "OAuth2",
+      "user": "cricketr@madrasmindworks.in",
+      "serviceClient": "102599347168294005197",
+      "privateKey" : "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC3OzjTEqG0N5Qm\nahI11h4rhgEwCF/EXNdzax5mkHAc/6EJuWcMfWR6JXXaXSSCCkj8206qmoFEfhYH\n/Rje3rgvRLlgiQN/ywB0hTphEul+w9f9HC4xJSb6heqUg01SvmWejyBkcKq6BfSE\nZ6PyY7f/1Mt4sRBdQv9hduLgMuaigrO+4nPOIWc25kcW8xF++EZ4CRVYZzLVObXC\nx+jk0wJRrtYQizewox6N89J/K5MlZUqKS7ByuJMR9O5VBUcFiIWDxMd9AnMvsj69\nQ2KFA1JQjYsdcbvliAB7svjnQWI/vA3Kv14PERPbOWLbe2eZspgLFEPsB3Y+H2aI\n1OcmDWvBAgMBAAECggEABIfrBtZoY/AOxnRHle/o/iRXsrz2xgiyEdQ8j76HLLLm\nK/L7EzUltSLocR9d8vajVVgcl+m3HAsSgzUfKonzL9VLIJnTwasC1GbL3b0Xk7k+\n3dcWxfOmVRInHc/5Q0xCr9kIBO7PrHbfq/9id6C/UtTbqRTnD8jTjwjXKXJNx2eB\nVp5M5/TJ3Y4C4zFaWmec0FLl0A4KIp0zeRe5N1Ak+3LMUwqfv8FznqZZAqFD7l9R\nnKTuZma/N3fZMf3DwSgQ36+x7EhbTJZXIPX717L/pXcairjGvEaTy9QqpJYkg3Kj\nGlJON8P6DJK3hD6gkpvkeW8nDw5XUHFOUc1EdFdU4QKBgQD99eDCTcBuO1z2eq+z\n1FCrMOlfTjporN0WNL0wgvwMG+jAra8IvCqbeluRZvSlhJvA+ObWa18+6YE0/U28\n2FGS5rIqPrsBfDaHhb586DuU8OB3K36qt1AL7j4LfD9B3VD/UmymBBVLDAY+JTI/\nIUHM+dsd2ha7stMU/3ongAdbIQKBgQC4s+5BMOQIwnNrwiHcG6LRdy51nJG/8xBi\ntgLQCC0TfQRVauyvPjWkg9ILem+tk1ISkgsvCAqguR6eRY/hgVXslfaVIZp6Mhxx\nQRF20HIWPuIW5mb2VnSkhc0d6c9/Rg3eLFsGlKaFgLFUdCdpYxsUAZbS+ekgldpg\nyv2i1kWcoQKBgQD0yMeQYaMmXP+47/5lRjNPHsECxQNVm7EqU0E7/jT1cv1AouiA\nceZboG+cUfFjjNMYCJFvgWT33dhVfAYvDQ5rmwOF5psXzmM883PtL2cmo5qoIvtf\nj3uPVF7ncSYD1U/aGddxmaPwhzGJOw8YfHTRHs/OEUUyPCZrKejTI/tzIQKBgANj\nOXF0phoLBvbo/pn838Wbu/xoPLwahyhoUjDilYEP/+5ZIbItH+q+iDGxsy6pzw2M\nJCxep2M/QfKBMBxgtOS782PU0/J9zMu+98UIGa+Sw67L1wOZnlYOJi7wRN/+tu5m\nPd0nCM7WB2qXHsnuCWcaiFuiPcZdOT4hOvmrmGdBAoGBAPhDbIBTMbotyjz1LyOa\n9ra7gF/SB+ihhK92SR8ZQwKJItXtHvbzv4EENQAkfwVsaMt+shM8Bd1zKlZq21Zk\n40jFnoGpJRMR4mU3UVzkvHhocbMD9DaJq8mT6rn1uHtczfNeNLcNPrJjSUQAL1g8\nAYnoVc6cslMlT/WfjzCc147B\n-----END PRIVATE KEY-----\n"
+    }
+  }
+}

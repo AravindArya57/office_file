@@ -1,0 +1,93 @@
+doctype html
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+
+  // Bootstrap CSS
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1' crossorigin='anonymous')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+  script(src='//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js')
+  link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
+  link(rel='stylesheet' href='/stylesheets/'+ownerId+'/edit.css')
+  script(src='https://cdn.jsdelivr.net/npm/sweetalert2@9')
+  script(type='text/javascript' src='/javascripts/editProject.js')
+  
+  title Edit, Project!
+
+style.
+ .DropdownBTN{
+  background-color:White;
+  border:2px solid #333;
+  padding:8px 12px;
+  margin-top:10px;
+  display:block;
+  }
+
+// Just an image
+nav.navbar.navbar-light.bg-light
+  .container-fluid
+    a.navbar-brand(href='')
+      img(src='/images/'+ownerId+'/logo.png' alt='' width='160' height='80')
+if projectName
+  .container-fluid
+    .row
+      .col-md-6
+        .projectname
+          .projecttitle
+            | Project Name
+            span
+              input.Mainname(type='name' placeholder='Project Name' value=`${projectName}` readonly)
+              input.Mainname(type='hidden'  value=`${projectId}` readonly)
+            button.savebtn(type='submit') 
+              span.material-icons.editicon(name='edit' onclick='edit(this, "project")') edit
+      .col-md-6
+        button.publishbutn(type='submit' onclick="updateViewOrder()") Update Layout  
+        button.viewpagebtn(type='submit' onclick="window.open(window.location.href.replace('\/edit',''), '_blank');") Viewpage
+.container-fluid
+
+  if !projects
+    p(style='color: aliceblue; text-align: center; font-size: 24px;') No fileuploaded to this project
+  else
+    #sortableDiv.row
+      each project in projects
+        .col-md-2.carddesign
+          .card(style='width: 18rem; margin: 10px auto;')
+            .card-body             
+              span.material-icons.editicon(name='edit' onclick='edit(this, "file")') edit              
+              // <span class="material-icons editicon" name="edit" onclick="editFileName(this)">done</span>
+              // <h5 class="card-title" id="filename">Cardtdfle</h5>
+              input#filename.filename(type='text' name='fileName' value=`${project.name}` readonly='' )
+              input#fileId.filename(type='hidden' name='fileId' value=`${project.uuid}` readonly='' )
+              select.DropdownBTN(name='fileCategory', id='fileCategory' title='Change category' value=`${project.category}` onchange="changeFileCategory(this)")
+                each category in categories
+                  option(value= category.name, selected= category.name === project.category)= category.name
+              span.material-icons.thumbicon
+                case project.type
+                  when 1
+                    | slideshow
+                  when 3
+                    | picture_as_pdf
+                  when 4
+                    | link
+              span.material-icons.deleteicon(name='delete' onclick='deleteFile(this)') delete    
+            
+                
+              
+
+footer.footer
+  .footer-copyright.text-center.py-3.fo
+    | Powered by
+    a(href='https://mindwox.com')
+      img.footerlogo(src='https://mindwox.com/images/logof.svg')
+// Optional JavaScript; choose one of the two!
+// Option 1: Bootstrap Bundle with Popper
+
+// Option 2: Separate Popper and Bootstrap JS
+//
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+script.
+  $("#sortableDiv").sortable({
+  });
+  

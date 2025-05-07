@@ -1,0 +1,17 @@
+doctype html
+h2 All Projects
+a(href="/file/create", target="_blank") upload new file
+br
+br
+a(href="/projects/create", target="_blank") create new project
+table(style='width:100%')
+  tr
+    td projectName
+    td url
+
+  each project in projects
+    tr
+        td #{project.name}
+        td
+            a(href='/projects/'+project.uuid, target="_blank") Link
+        
